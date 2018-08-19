@@ -1,4 +1,4 @@
-var admin = require("firebase-admin");
+const admin = require("firebase-admin");
 require("dotenv").config();
 
 if (!process.env.FIREBASE_KEY_SOURCE) {
@@ -14,10 +14,10 @@ if (!process.env.FIREBASE_URL_TARGET) {
   return console.log("FIREBASE_URL_TARGET is missing");
 }
 
-var firebaseKeySource = JSON.parse(process.env.FIREBASE_KEY_SOURCE);
-var firebaseKeyTarget = JSON.parse(process.env.FIREBASE_KEY_TARGET);
+const firebaseKeySource = JSON.parse(process.env.FIREBASE_KEY_SOURCE);
+const firebaseKeyTarget = JSON.parse(process.env.FIREBASE_KEY_TARGET);
 
-var sourceApp = admin.initializeApp(
+const sourceApp = admin.initializeApp(
   {
     credential: admin.credential.cert(firebaseKeySource),
     databaseURL: process.env.FIREBASE_URL_SOURCE
@@ -25,7 +25,7 @@ var sourceApp = admin.initializeApp(
   "sourceApp"
 );
 
-var targetApp = admin.initializeApp(
+const targetApp = admin.initializeApp(
   {
     credential: admin.credential.cert(firebaseKeyTarget),
     databaseURL: process.env.FIREBASE_URL_TARGET
@@ -33,10 +33,10 @@ var targetApp = admin.initializeApp(
   "targetApp"
 );
 
-var sourceDb = sourceApp.database();
-var sourceInventoryRef = sourceDb.ref();
-var targetDb = targetApp.database();
-var targetInventoryRef = targetDb.ref();
+const sourceDb = sourceApp.database();
+const sourceInventoryRef = sourceDb.ref();
+const targetDb = targetApp.database();
+const targetInventoryRef = targetDb.ref();
 
 async function copySourceDataToTarget() {
   let snapshot = await sourceInventoryRef.once("value");
