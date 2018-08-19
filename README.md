@@ -9,19 +9,19 @@ A command line tool to copy the data from the source firebase database to target
 - Clone the project:
 
 ```
-> git clone https://github.com/yashshah/firebase-database-copy.git
+git clone https://github.com/yashshah/firebase-database-copy.git
 ```
 
 - Go inside the project
 
 ```
-> cd firebase-database-copy/
+cd firebase-database-copy/
 ```
 
 - Install the depedencies
 
 ```
-> npm install
+npm install
 ```
 
 - Update the .env file with your source database and the target database
@@ -36,5 +36,5 @@ FIREBASE_KEY_TARGET=
 - Run the script
 
 ```
-> node app.js
+node app.js
 ```
