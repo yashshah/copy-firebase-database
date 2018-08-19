@@ -30,3 +30,19 @@ var stagingApp = admin.initializeApp({
 
 var productionDb = productionApp.database();
 var productionInventoryRef = productionDb.ref();
+
+function readProductionDb() {
+  productionInventoryRef.once("value").then(snapshot => {
+    // console.log(Object.keys(snapshot.val()));
+    writeToStagingDb(snapshot.val());
+  });
+}
+
+function writeToStagingDb(data) {
+  var stagingDb = stagingApp.database();
+  var stagingInventoryRef = stagingDb.ref();
+  console.log("WRITE DATA");
+  stagingInventoryRef.update(data);
+}
+
+readProductionDb();
