@@ -1,6 +1,6 @@
 # clone-firebase-database
 
-A command line tool to export Firebase database from one project to another
+A command line tool to export Firebase database from the source project to target project.
 
 ## Running
 
