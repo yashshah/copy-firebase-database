@@ -17,15 +17,21 @@ if (!process.env.FIREBASE_URL_TARGET) {
 var firebaseKeySource = JSON.parse(process.env.FIREBASE_KEY_SOURCE);
 var firebaseKeyTarget = JSON.parse(process.env.FIREBASE_KEY_TARGET);
 
-var sourceApp = admin.initializeApp({
-  credential: admin.credential.cert(firebaseKeySource),
-  databaseURL: process.env.FIREBASE_URL_SOURCE
-});
+var sourceApp = admin.initializeApp(
+  {
+    credential: admin.credential.cert(firebaseKeySource),
+    databaseURL: process.env.FIREBASE_URL_SOURCE
+  },
+  "sourceApp"
+);
 
-var targetApp = admin.initializeApp({
-  credential: admin.credential.cert(firebaseKeyTarget),
-  databaseURL: process.env.FIREBASE_URL_TARGET
-});
+var targetApp = admin.initializeApp(
+  {
+    credential: admin.credential.cert(firebaseKeyTarget),
+    databaseURL: process.env.FIREBASE_URL_TARGET
+  },
+  "targetApp"
+);
 
 var sourceDb = sourceApp.database();
 var sourceInventoryRef = sourceDb.ref();
