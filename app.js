@@ -2,40 +2,40 @@
 
 var admin = require("firebase-admin");
 
-if (!process.env.FIREBASE_KEY_PRODUCTION) {
-  return console.log("FIREBASE_KEY_PRODUCTION is missing");
+if (!process.env.FIREBASE_KEY_SOURCE) {
+  return console.log("FIREBASE_KEY_SOURCE is missing");
 }
-if (!process.env.FIREBASE_KEY_STAGING) {
-  return console.log("FIREBASE_KEY_STAGING is missing");
+if (!process.env.FIREBASE_KEY_TARGET) {
+  return console.log("FIREBASE_KEY_TARGET is missing");
 }
-if (!process.env.FIREBASE_URL_PRODUCTION) {
-  return console.log("FIREBASE_URL_PRODUCTION is missing");
+if (!process.env.FIREBASE_URL_SOURCE) {
+  return console.log("FIREBASE_URL_SOURCE is missing");
 }
-if (!process.env.FIREBASE_URL_STAGING) {
-  return console.log("FIREBASE_URL_STAGING is missing");
+if (!process.env.FIREBASE_URL_TARGET) {
+  return console.log("FIREBASE_URL_TARGET is missing");
 }
 
-var firebaseKeyProduction = JSON.parse(process.env.FIREBASE_KEY_PRODUCTION);
-var firebaseKeyStaging = JSON.parse(process.env.FIREBASE_KEY_STAGING);
+var firebaseKeySource = JSON.parse(process.env.FIREBASE_KEY_SOURCE);
+var firebaseKeyTarget = JSON.parse(process.env.FIREBASE_KEY_TARGET);
 
-var productionApp = admin.initializeApp({
-  credential: admin.credential.cert(firebaseKeyProduction),
-  databaseURL: process.env.FIREBASE_URL_PRODUCTION
+var sourceApp = admin.initializeApp({
+  credential: admin.credential.cert(firebaseKeySource),
+  databaseURL: process.env.FIREBASE_URL_SOURCE
 });
 
-var stagingApp = admin.initializeApp({
-  credential: admin.credential.cert(firebaseKeyStaging),
-  databaseURL: process.env.FIREBASE_URL_STAGING
+var targetApp = admin.initializeApp({
+  credential: admin.credential.cert(firebaseKeyTarget),
+  databaseURL: process.env.FIREBASE_URL_TARGET
 });
 
-var productionDb = productionApp.database();
-var productionInventoryRef = productionDb.ref();
-var stagingDb = stagingApp.database();
-var stagingInventoryRef = stagingDb.ref();
+var sourceDb = sourceApp.database();
+var sourceInventoryRef = sourceDb.ref();
+var targetDb = targetApp.database();
+var targetInventoryRef = targetDb.ref();
 
-async function copyProductionDbToStaging() {
-  let snapshot = await productionInventoryRef.once("value");
-  stagingInventoryRef.update(snapshot.val());
+async function copySourceDataToTarget() {
+  let snapshot = await sourceInventoryRef.once("value");
+  targetInventoryRef.update(snapshot.val());
 }
 
-copyProductionDbToStaging();
+copySourceDataToTarget();
