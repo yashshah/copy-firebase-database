@@ -1,0 +1,22 @@
+{
+  "name": "firebase-database-copy",
+  "version": "1.0.0",
+  "description": "Copy Production Firebase to Staging",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashshah/firebase-database-copy.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yashshah/firebase-database-copy/issues"
+  },
+  "homepage": "https://github.com/yashshah/firebase-database-copy#readme",
+  "dependencies": {
+    "firebase-admin": "^6.0.0"
+  }
+}
