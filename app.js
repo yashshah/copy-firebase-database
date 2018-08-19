@@ -1,6 +1,5 @@
-// Firebase production to staging sync
-
 var admin = require("firebase-admin");
+require("dotenv").config();
 
 if (!process.env.FIREBASE_KEY_SOURCE) {
   return console.log("FIREBASE_KEY_SOURCE is missing");
@@ -35,7 +34,7 @@ var targetInventoryRef = targetDb.ref();
 
 async function copySourceDataToTarget() {
   let snapshot = await sourceInventoryRef.once("value");
-  targetInventoryRef.update(snapshot.val());
+  return targetInventoryRef.update(snapshot.val());
 }
 
 copySourceDataToTarget();

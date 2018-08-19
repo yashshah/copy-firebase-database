@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yashshah/firebase-database-copy#readme",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "firebase-admin": "^6.0.0"
   }
 }
