@@ -1,21 +1,21 @@
 {
-  "name": "firebase-database-copy",
+  "name": "copy-firebase-database",
   "version": "1.0.0",
-  "description": "Copy Production Firebase to Staging",
+  "description": "Copy data from Source to Target Firebase realtime database",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yashshah/firebase-database-copy.git"
+    "url": "git+https://github.com/yashshah/copy-firebase-database.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yashshah/firebase-database-copy/issues"
+    "url": "https://github.com/yashshah/copy-firebase-database/issues"
   },
-  "homepage": "https://github.com/yashshah/firebase-database-copy#readme",
+  "homepage": "https://github.com/yashshah/copy-firebase-database#readme",
   "dependencies": {
     "dotenv": "^6.0.0",
     "firebase-admin": "^6.0.0"
