@@ -1,4 +1,4 @@
-# firebase-database-copy
+# Copy Firebase Database to Another
 
 A command line tool to copy the data from the source firebase database to target firebase database.
 
@@ -9,13 +9,13 @@ A command line tool to copy the data from the source firebase database to target
 - Clone the project:
 
 ```
-git clone https://github.com/yashshah/firebase-database-copy.git
+git clone https://github.com/yashshah/copy-firebase-database.git
 ```
 
 - Go inside the project
 
 ```
-cd firebase-database-copy/
+cd copy-firebase-database/
 ```
 
 - Install the depedencies
